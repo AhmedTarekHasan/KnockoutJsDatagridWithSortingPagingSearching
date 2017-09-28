@@ -1,0 +1,70 @@
+<div class="jtable-main-container">
+	<div class="jtable-title">
+		<div class="jtable-title-text">
+            Employees
+		</div>
+	    <div class="jtable-toolbar">
+			<span class="jtable-toolbar-item jtable-toolbar-item-add-record" style="vertical-align:middle!important;">
+				<span class="jtable-toolbar-item-text">
+					Highlight  
+					<input type="text" style="width:200px;" data-bind="value: $root.SearchText, valueUpdate: 'afterkeydown'" />
+				</span>
+			</span>
+		    <!-- ko if:  $root.WithPaging() -->
+				<span class="jtable-toolbar-item jtable-toolbar-item-add-record" style="vertical-align:middle!important;">
+					<span class="jtable-toolbar-item-text">
+						Page Size 
+						<input type="text" style="width:50px;" data-bind="value: $root.PageSize, isUnSignedIntegerTextBox: true" />
+					</span>
+				</span>
+			<!-- /ko -->
+		</div> 
+	</div>
+    <table class="jtable">
+		<thead>
+			<tr>
+				<th class="jtable-column-header jtable-column-header-sortable" data-bind="click: function () { $root.SetEmployeesSorting('Id'); }, css: { 'jtable-column-header-sorted-asc': $root.SortingColumn() == 'Id' && $root.SortingDirection() == 'asc', 'jtable-column-header-sorted-desc': $root.SortingColumn() == 'Id' && $root.SortingDirection() != 'asc' }">
+					<div class="jtable-column-header-container">
+						<span class="jtable-column-header-text">
+							Id
+						</span>
+					</div>
+				</th>
+				<th class="jtable-column-header jtable-column-header-sortable" data-bind="click: function () { $root.SetEmployeesSorting('Name'); }, css: { 'jtable-column-header-sorted-asc': $root.SortingColumn() == 'Name' && $root.SortingDirection() == 'asc', 'jtable-column-header-sorted-desc': $root.SortingColumn() == 'Name' && $root.SortingDirection() != 'asc' }">
+					<div class="jtable-column-header-container">
+						<span class="jtable-column-header-text">
+							Name
+						</span>
+					</div>
+				</th>
+			</tr>
+		</thead>
+		<tbody id="EmployeesTableBody">
+			<!-- ko if:  $data.Employees().length > 0 -->
+				<!-- ko template: {name: 'EmployeesTemplate', foreach: $data.Employees, as: 'employee'}-->
+				<!-- /ko -->
+			<!-- /ko -->
+			<!-- ko ifnot:  $data.Employees().length > 0 -->
+				<tr class="jtable-data-row jtable-row-odd">
+					<td colspan="2">
+						No employees found
+					</td>
+				</tr>
+			<!-- /ko -->
+		</tbody>
+	</table>
+    <!-- ko if:  $data.Employees().length > 0 -->
+        <div style="display:block;" id="EmployeesPager" class="page_navigation"></div>
+    <!-- /ko -->
+</div>
+
+<script id="EmployeesTemplate" type="text/html">
+    <tr class="jtable-data-row" data-bind="css: {'not-found-on-search': !$root.SearchTextExistsOnRow(employee), 'jtable-row-even': ($index() % 2) == 0, 'jtable-row-odd': ($index() % 2) != 0 }">
+        <td>
+            <label data-bind="highlightThis: $root.SearchText(), text: employee.Id(), shortenAt: AppSettings.ShortenAt, moreText: AppSettings.ShortenMoreText, lessText: AppSettings.ShortenLessText"></label>
+        </td>
+		<td>
+            <label data-bind="highlightThis: $root.SearchText, text: employee.Name(), shortenAt: AppSettings.ShortenAt, moreText: AppSettings.ShortenMoreText, lessText: AppSettings.ShortenLessText"></label>
+        </td>
+    </tr>
+</script>

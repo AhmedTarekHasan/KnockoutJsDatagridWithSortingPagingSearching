@@ -1,0 +1,119 @@
+﻿body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: grey no-repeat center center;
+    min-width: 980px;
+    font-size: 12px;
+    line-height: normal;
+    color: black;
+}
+
+* {
+    padding: 0;
+    outline: none;
+    border: none;
+    text-align: left;
+    list-style: none;
+}
+
+.not-found-on-search {
+	display: none!important;
+}
+
+.highlighted-search-text {
+	background-color: #ff2;
+}
+
+table thead tr th, table tbody tr td {
+    vertical-align: top;
+}
+
+a, a:hover, a:visited {
+    text-decoration: none;
+    outline: none;
+    cursor: pointer;
+}
+
+a:hover, a:focus, a:active {
+	color: black /*c4c4c4*/;
+	text-decoration: none;
+}
+
+::selection {
+    background: #666;
+    color: black;
+    text-shadow: none;
+}
+
+html, body {
+    height: 100%;
+}
+
+.jPaginate {
+    float: right;
+    height: 34px;
+    position: relative;
+    color: #a5a5a5;
+    font-size: small;
+    width: auto;
+    padding-right: 65px;
+    margin-top: 10px;
+}
+
+.jPaginate a {
+	line-height: 15px;
+	height: 18px;
+	cursor: pointer;
+	padding: 2px 5px;
+	margin: 2px;
+	float: left;
+}
+
+.jPag-control-back {
+    position: absolute;
+    left: 0px;
+}
+
+.jPag-control-front {
+    position: absolute;
+    top: 0px;
+}
+
+.jPaginate span {
+    cursor: pointer;
+}
+
+ul.jPag-pages {
+    float: left;
+    list-style-type: none;
+    margin: 0px 0px 0px 0px;
+    padding: 0px;
+}
+
+ul.jPag-pages li {
+	display: inline;
+	float: left;
+	padding: 0px;
+	margin: 0px;
+	font-weight: bold;
+}
+
+ul.jPag-pages li a {
+	float: left;
+	padding: 2px 5px;
+}
+
+span.jPag-current {
+    cursor: default;
+    background-color: rgba(251, 235, 235, 0.38);
+    line-height: 15px;
+    height: 18px;
+    padding: 2px 5px;
+    margin: 2px;
+    float: left;
+}
+
+table tr.jtable-row-odd td, table tr.jtable-data-row td {
+    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    line-height: 30px;
+}
