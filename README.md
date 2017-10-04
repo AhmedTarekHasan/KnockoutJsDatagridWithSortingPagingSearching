@@ -14,6 +14,11 @@ For any further details, please check [this article](http://developmentsimplyput
 
 <br/>
 
+## Live Demo:
+[Give it a try](https://ahmedtarekhasan.github.io/KnockoutJsDatagridWithSortingPagingSearching/)
+
+<br/>
+
 ## Related Links:
 * [Development Simply Put Blog Post](http://developmentsimplyput.blogspot.com/2015/02/knockout-datagrid-with-sorting-paging.html)
 
